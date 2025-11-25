@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Donation</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif;
+      background: #915834;
+      color: white;
+      margin: 0;
+      height: 100vh;
+      
+
+      /* Center everything */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    .page { display: none; }
+    .active { display: block; }
+
+    button {
+      padding: 12px 25px;
+      margin-top: 15px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    img {
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PRODUCT PAGE -->
+  <div id="productPage" class="page active">
+    <h1>Help Us Create a Better Tomorrow</h1>
+    <h2>Your Support Helps Us Reach More Lives</h2>
+    <button onclick="goToCart()">Next</button>
+  </div>
+
+  <!-- ADD TO CART PAGE -->
+  <div id="cartPage" class="page">
+    <h1>It's my broken day</h1>
+    <button onclick="goToPayment()">Proceed to Payment</button>
+  </div>
+
+  <!-- PAYMENT PAGE -->
+  <div id="paymentPage" class="page">
+    <h1>Payment QR Code</h1>
+
+    <h3>Scan to Pay</h3>
+    <img src="for image/Qrcode.jpg" width="200" alt="QR Code Payment">
+
+    <p>Go directly to application! Thank you so much jupjup</p>
+    <button onclick="window.location.href='https://pay.ababank.com/YOUR_PAYME_CODE';">
+  Pay Now
+</button>
+
+  </div>
+
+  <script>
+    function show(page) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(page).classList.add('active');
+    }
+
+    function goToCart() {
+      show('cartPage');
+    }
+
+    function goToPayment() {
+      show('paymentPage');
+    }
+
+    function payNow() {
+      alert('Payment Successful!');
+    }
+  </script>
+
+</body>
+</html>
